@@ -5,3 +5,12 @@ title = 'My New Hugo Site'
 
 [[module.imports]]
 path = 'github.com/gethinode/hinode'
+
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
