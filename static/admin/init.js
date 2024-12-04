@@ -1,10 +1,8 @@
-import CMS from 'decap-cms';
-
 // Import widgets (optional)
-import { MarkdownWidget } from 'decap-cms';
+const { CMS, initCMS: init } = window
 
 // Register widgets
-CMS.registerWidget('markdown', MarkdownWidget);
+// CMS.registerWidget('markdown', CMS.MarkdownWidget);
 
 // Initialize CMS with custom config
 CMS.init({
@@ -14,11 +12,12 @@ CMS.init({
             proxy_url: 'http://localhost:8081/api/v1',
             branch: 'master'
         },
+        load_config_file: false,
         media_folder: 'static/images/uploads',
         public_folder: '/images/uploads',
         collections: [
             {
-                "name": "blog",
+                "name": "Blog Posts",
                 "label": "Blog Posts",
                 "folder": "content/en/blog",
                 "create": true,
