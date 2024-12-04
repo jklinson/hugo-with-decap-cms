@@ -11,15 +11,24 @@ CMS.init({
             name: 'github',
             repo: 'jklinson/hugo-with-decap-cms',
             branch: 'main',
-            client_id: 'Ov23liUavsHCBFVwjSWu',
-            client_secret: '1e5c506ec092db32290bbfae4d442f560eb72eb7',
-            auth_endpoint: 'https://github.com/login/oauth/authorize',
+            base_url: 'https://f7ayrsk185.execute-api.ap-southeast-2.amazonaws.com',
+            auth_endpoint: 'prod/auth',
             access_token_url: 'https://github.com/login/oauth/access_token',
-            proxy_url: null
+            proxy_url: null,
+            commit_messages:
+            {
+                create: 'Create {{collection}} “{{slug}}”',
+                update: 'Update {{collection}} “{{slug}}”',
+                delete: 'Delete {{collection}} “{{slug}}”',
+                uploadMedia: 'Upload “{{path}}”',
+                deleteMedia: 'Delete “{{path}}”',
+                openAuthoring: '{{message}}'
+            }
         },
         load_config_file: false,
         media_folder: 'static/images/uploads',
         public_folder: '/images/uploads',
+        stie_url: "http://linson.hugo.decap.s3-website-ap-southeast-2.amazonaws.com",
         collections: [
             {
                 "name": "Blog Posts",
