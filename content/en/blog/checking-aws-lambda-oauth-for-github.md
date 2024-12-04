@@ -1,7 +1,7 @@
 ---
 author: Linson Alfred
 title: Checking AWS lambda OAuth for github
-date: 2024-12-05T01:26:00.000Z
+date: 2024-12-04T01:26:00.000Z
 description: Testing github lambda auth the permission and testing
 tags:
   - blogs
