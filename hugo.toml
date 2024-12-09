@@ -1,4 +1,4 @@
-baseURL = 'https://jklinson.github.io/hugo-with-decap-cms'
+baseURL = 'http://linson.hugo.decap.s3-website-ap-southeast-2.amazonaws.com'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 
