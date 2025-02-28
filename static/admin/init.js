@@ -39,26 +39,29 @@ CMS.init({
                 "format": "frontmatter",
                 "fields": [
                     { "label": "Author", "name": "author", "widget": "string" },
-                    { "label": "Title", "name": "title", "widget": "string" },
+                    { "label": "Title", "name": "title", "widget": "hidden", "required": false },
+                    { "label": "Name", "name": "name", "widget": "string" },
                     { "label": "Date", "name": "date", "widget": "datetime" },
                     { "label": "Description", "name": "description", "widget": "text" },
-                    { "label": "Tags", "name": "tags", "widget": "list", "default": [] },
-                    { "label": "Search Exclude", "name": "searchExclude", "widget": "boolean", "default": false },
-                    {
-                        "label": "Thumbnail",
-                        "name": "thumbnail",
-                        "widget": "object",
-                        "fields": [
-                            { "label": "Image URL", "name": "url", "widget": "string" },
-                            { "label": "Author", "name": "author", "widget": "string" },
-                            { "label": "Author URL", "name": "authorURL", "widget": "string" },
-                            { "label": "Origin", "name": "origin", "widget": "string" },
-                            { "label": "Origin URL", "name": "originURL", "widget": "string" }
-                        ]
-                    },
                     { "label": "Body", "name": "body", "widget": "markdown" }
                 ]
             },
         ],
+    },
+});
+
+// Add event listener for form submission
+CMS.registerEventListener({
+    name: 'preSave',
+    handler: ({ entry }) => {
+        let entryData = entry.get('data').toJS();
+        const name = entryData.name || '';
+        const date = entryData.date || '';
+        
+        // Create the combined title
+        const combinedTitle = `${name}-${date}`;
+        
+        // Update the entry's title field
+        return entry.get('data').set('title', combinedTitle);
     },
 });
